@@ -90,7 +90,7 @@ function Dropdown({
               role="menuitem"
               disabled={disabled}
               className={cn(
-                "w-full rounded-xl px-3 py-2 text-left transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50",
+                "w-full cursor-pointer rounded-xl px-3 py-2 text-left transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50",
                 className
               )}
               onClick={() => {
