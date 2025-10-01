@@ -13,7 +13,7 @@ function MainHeader({
   rightSlot,
 }: MainHeaderProps) {
   return (
-    <div className="sticky top-0 border-b border-white/5 bg-black/80 backdrop-blur">
+    <div className="sticky top-0 backdrop-blur">
       <header
         className="mx-auto relative w-full max-w-4xl px-4 py-3 sm:px-8 sm:py-4 lg:px-10
                      grid grid-cols-3 items-center"

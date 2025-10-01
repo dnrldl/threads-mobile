@@ -28,7 +28,7 @@ function MainLayout({
       >
         {header}
       </div>
-      <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col gap-6 px-4 py-6 sm:gap-8 sm:px-10 sm:py-8">
+      <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col gap-6 px-4 py-2 sm:gap-8 sm:px-10 sm:py-8">
         {children}
       </main>
 
