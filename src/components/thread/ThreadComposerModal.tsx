@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import AppModal from "../AppModal";
 import BaseButton from "../BaseButton";
+import { APP_BACKGROUND } from "../../constants/theme";
 
 interface ThreadComposerModalProps {
   isOpen: boolean;
@@ -54,7 +55,8 @@ function ThreadComposerModal({ isOpen, onClose }: ThreadComposerModalProps) {
           </label>
           <textarea
             id="thread-content"
-            className="h-32 w-full resize-none rounded-2xl border border-white/10 bg-black/60 px-4 py-3 text-sm text-neutral-100 placeholder:text-neutral-600 focus:border-white/30 focus:outline-none"
+            className="h-32 w-full resize-none rounded-2xl border border-white/10 px-4 py-3 text-sm text-neutral-100 placeholder:text-neutral-600 focus:border-white/30 focus:outline-none"
+            style={{ backgroundColor: APP_BACKGROUND }}
             placeholder="지금 무엇을 생각하고 계신가요?"
             value={content}
             onChange={(event) => setContent(event.target.value)}

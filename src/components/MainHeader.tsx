@@ -1,4 +1,5 @@
 import SettingButton from "./common/SettingButton";
+import { APP_BACKGROUND } from "../constants/theme";
 
 interface MainHeaderProps {
   title?: string;
@@ -13,7 +14,10 @@ function MainHeader({
   rightSlot,
 }: MainHeaderProps) {
   return (
-    <div className="sticky top-0 backdrop-blur">
+    <div
+      className="sticky top-0 border-b border-white/10 backdrop-blur"
+      style={{ backgroundColor: APP_BACKGROUND }}
+    >
       <header
         className="mx-auto relative w-full max-w-4xl px-4 py-3 sm:px-8 sm:py-4 lg:px-10
                      grid grid-cols-3 items-center"

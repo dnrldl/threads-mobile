@@ -1,6 +1,7 @@
 import { useMemo, useRef } from "react";
 import type { Post } from "../../types/feed";
 import { formatHandle } from "../../utils/format";
+import { APP_BACKGROUND } from "../../constants/theme";
 import AppModal from "../AppModal";
 import PostActions from "./PostActions";
 import PostCommentForm from "./PostCommentForm";
@@ -43,8 +44,8 @@ function PostDetailModal({ post, isOpen, onClose }: PostDetailModalProps) {
     >
       <article className="flex flex-col sm:flex-row sm:divide-x sm:divide-white/10">
         <div
-          className="h-48 w-full flex-shrink-0 bg-black/70 sm:h-auto sm:w-[42%] rounded-md"
-          style={gradientStyle}
+          className="h-48 w-full flex-shrink-0 sm:h-auto sm:w-[42%] rounded-md"
+          style={{ ...gradientStyle, backgroundColor: APP_BACKGROUND }}
           aria-hidden
         />
 

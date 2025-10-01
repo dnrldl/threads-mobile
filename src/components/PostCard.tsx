@@ -5,6 +5,7 @@ import { formatHandle } from "../utils/format";
 import PostActions from "./post/PostActions";
 import PostHeader from "./post/PostHeader";
 import PostDetailModal from "./post/PostDetailModal";
+import { APP_BACKGROUND } from "../constants/theme";
 
 // 개별 포스트 피드를 렌더링하기 위한 프롭 타입
 interface PostCardProps {
@@ -46,7 +47,10 @@ function PostCard({ post }: PostCardProps) {
   // Threads 피드 특유의 흑백 대비와 텍스트 중심 구성을 반영
   return (
     <>
-      <article className="rounded-3xl border border-neutral-900 bg-black/90 p-4 shadow-[0_30px_80px_-60px_rgba(15,15,15,0.9)] sm:p-6">
+      <article
+        className="rounded-3xl border border-neutral-800 p-4 shadow-[0_30px_80px_-60px_rgba(15,15,15,0.9)] sm:p-6"
+        style={{ backgroundColor: APP_BACKGROUND }}
+      >
         <PostHeader
           author={post.author}
           handle={formattedHandle}

@@ -3,13 +3,17 @@ import IconButton from "./IconButton";
 import BaseButton from "./BaseButton";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import { useState } from "react";
+import { APP_BACKGROUND } from "../constants/theme";
 
 // 간단한 로그인 인터페이스를 제공하는 카드 컴포넌트
 function LoginCard() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="w-full max-w-sm rounded-2xl border border-neutral-800 bg-black/70 p-5 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.8)] sm:p-6">
+    <div
+      className="w-full max-w-sm rounded-2xl border border-neutral-800 p-5 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.8)] sm:p-6"
+      style={{ backgroundColor: APP_BACKGROUND }}
+    >
       <div className="space-y-2">
         <p className="text-sm font-semibold text-neutral-200">로그인</p>
         <p className="text-xs text-neutral-500">
