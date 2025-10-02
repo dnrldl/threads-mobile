@@ -15,7 +15,8 @@ function AppModalItem({ items }: AppModalItemProps) {
           return (
             <li key={item.title}>
               <button
-                className={`w-full rounded-lg bg-white/5 p-4 text-center  transition ${
+                onClick={item.action}
+                className={`w-full rounded-lg bg-white/5 p-4 text-center cursor-pointer  transition ${
                   isDanger
                     ? "text-red-400 hover:bg-red-500/20"
                     : "text-neutral-200 hover:bg-white/10"

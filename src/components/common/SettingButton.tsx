@@ -32,7 +32,7 @@ const SettingButton = () => {
 
   return (
     <Dropdown
-      trigger={<Menu size={22} />}
+      trigger={<Menu size={22} strokeWidth={3} />}
       triggerClassName="flex items-center justify-center bg-transparent text-neutral-300 px-2 py-1 hover:opacity-80 cursor-pointer"
       align="right"
       items={dropdownItems}

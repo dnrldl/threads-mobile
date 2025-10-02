@@ -1,5 +1,11 @@
 import { Fragment, useMemo } from "react";
-import { Listbox, Transition } from "@headlessui/react";
+import {
+  Listbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+  Transition,
+} from "@headlessui/react";
 import { Check, ChevronDown } from "lucide-react";
 import { cn } from "../../utils/cn";
 
@@ -25,22 +31,29 @@ function Select<T extends string>({
   className,
   buttonClassName,
 }: SelectProps<T>) {
-  const selected = useMemo(() => options.find((option) => option.value === value), [options, value]);
+  const selected = useMemo(
+    () => options.find((option) => option.value === value),
+    [options, value]
+  );
 
   return (
     <Listbox value={value} onChange={onChange}>
       <div className={cn("relative", className)}>
-        <Listbox.Button
+        <ListboxButton
           className={cn(
             "app-panel flex w-full items-center justify-between rounded-xl border border-white/10 px-4 py-2 text-left text-sm font-medium text-white focus:outline-none",
             buttonClassName
           )}
         >
           <span className="block truncate">
-            {selected ? selected.label : <span className="text-neutral-500">{placeholder}</span>}
+            {selected ? (
+              selected.label
+            ) : (
+              <span className="text-neutral-500">{placeholder}</span>
+            )}
           </span>
           <ChevronDown className="ml-2 h-4 w-4 opacity-70" aria-hidden />
-        </Listbox.Button>
+        </ListboxButton>
 
         <Transition
           as={Fragment}
@@ -48,9 +61,9 @@ function Select<T extends string>({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="app-panel absolute z-40 mt-2 max-h-60 w-full overflow-auto rounded-xl border border-white/10 py-1 text-sm shadow-lg focus:outline-none">
+          <ListboxOptions className="app-panel absolute z-40 mt-2 max-h-60 w-full overflow-auto rounded-xl border border-white/10 py-1 text-sm shadow-lg focus:outline-none">
             {options.map((option) => (
-              <Listbox.Option
+              <ListboxOption
                 key={option.value}
                 className={({ active }) =>
                   cn(
@@ -62,13 +75,22 @@ function Select<T extends string>({
               >
                 {({ selected: isSelected }) => (
                   <>
-                    <span className={cn("block truncate", isSelected && "font-semibold")}>{option.label}</span>
-                    {isSelected ? <Check className="ml-auto h-4 w-4" aria-hidden /> : null}
+                    <span
+                      className={cn(
+                        "block truncate",
+                        isSelected && "font-semibold"
+                      )}
+                    >
+                      {option.label}
+                    </span>
+                    {isSelected ? (
+                      <Check className="ml-auto h-4 w-4" aria-hidden />
+                    ) : null}
                   </>
                 )}
-              </Listbox.Option>
+              </ListboxOption>
             ))}
-          </Listbox.Options>
+          </ListboxOptions>
         </Transition>
       </div>
     </Listbox>

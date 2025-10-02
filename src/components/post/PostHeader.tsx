@@ -1,8 +1,9 @@
-import { useState } from "react";
 import { File, MoreHorizontal, Share, ShieldAlert } from "lucide-react";
-import IconButton from "../IconButton";
-import AppModal from "../AppModal";
+import { useState } from "react";
 import type { ModalItem } from "../../types/common";
+import AppModal from "../AppModal";
+import IconButton from "../IconButton";
+import { toast } from "sonner";
 
 interface PostHeaderProps {
   author: string;
@@ -26,8 +27,18 @@ function PostHeader({
 
   const moreModalItems: ModalItem[] = [
     {
-      title: "링크 공유",
-      action: () => {},
+      title: "링크 복사",
+      action: () => {
+        try {
+          navigator.clipboard.writeText(
+            `${window.location.origin}/${authorId}`
+          );
+          toast.info("링크 복사됨!");
+        } catch (error) {
+          console.error("링크 복사 실패:", error);
+          toast.error("링크 복사 실패!");
+        }
+      },
       icon: Share,
     },
     { title: "저장하기", action: () => {}, icon: File },

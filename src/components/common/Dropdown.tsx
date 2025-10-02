@@ -60,12 +60,12 @@ function Dropdown({
         >
           {items.map(({ id, label, onSelect, disabled, className }) => (
             <MenuItem key={id} disabled={disabled} as={Fragment}>
-              {({ active, disabled: itemDisabled }) => (
+              {({ focus, disabled: itemDisabled }) => (
                 <button
                   type="button"
                   className={cn(
                     "w-full rounded-xl px-3 py-2 text-left transition cursor-pointer",
-                    active && "bg-white/10",
+                    focus && "bg-white/10",
                     itemDisabled && "cursor-not-allowed opacity-50",
                     className
                   )}
