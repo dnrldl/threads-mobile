@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+  type CSSProperties,
+} from "react";
 import { cn } from "../../utils/cn";
 
 interface DropdownItem {
@@ -15,6 +21,7 @@ interface DropdownProps {
   align?: "left" | "right";
   menuClassName?: string;
   triggerClassName?: string;
+  style?: CSSProperties;
 }
 
 // 공용 드롭다운 컴포넌트 (클릭 트리거 + 간단한 메뉴)
@@ -24,6 +31,7 @@ function Dropdown({
   align = "left",
   menuClassName,
   triggerClassName,
+  style,
 }: DropdownProps) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -58,7 +66,7 @@ function Dropdown({
   }, [open]);
 
   return (
-    <div className="relative inline-flex">
+    <div className="relative inline-flex" style={style}>
       <button
         ref={triggerRef}
         type="button"
@@ -78,8 +86,8 @@ function Dropdown({
           ref={menuRef}
           role="menu"
           className={cn(
-            "absolute z-40 mt-2 min-w-[160px] overflow-hidden rounded-2xl border border-white/10 bg-neutral-950/95 p-1 text-sm text-neutral-100 shadow-lg backdrop-blur",
-            align === "right" ? "right-0" : "left-0",
+            "app-panel absolute top-10 z-40 mt-2 min-w-[160px] overflow-hidden rounded-2xl border border-white/10 p-1 text-sm shadow-lg",
+            align === "right" ? "-right-3" : "-left-3",
             menuClassName
           )}
         >

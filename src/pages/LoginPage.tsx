@@ -1,14 +1,10 @@
 import MobileBackButton from "../components/MobileBackButton";
 import LoginCard from "../components/LoginCard";
-import { APP_BACKGROUND } from "../constants/theme";
 
 // 전체 화면에 로그인 카드를 강조하는 페이지 컴포넌트
 function LoginPage() {
   return (
-    <div
-      className="flex min-h-screen flex-col text-neutral-50"
-      style={{ backgroundColor: APP_BACKGROUND }}
-    >
+    <div className="app-surface flex min-h-screen flex-col">
       <header className="relative flex items-center justify-center border-b border-white/10 px-4 py-4 sm:px-6">
         <MobileBackButton className="absolute left-4 top-1/2 -translate-y-1/2" />
         <div className="text-center">

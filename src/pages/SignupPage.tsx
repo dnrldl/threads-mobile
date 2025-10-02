@@ -1,14 +1,10 @@
 import MobileBackButton from "../components/MobileBackButton";
 import SignupCard from "../components/SignupCard";
-import { APP_BACKGROUND } from "../constants/theme";
 
 // 신규 가입 프로세스를 담당하는 전용 페이지 컴포넌트
 function SignupPage() {
   return (
-    <div
-      className="flex min-h-screen flex-col text-neutral-50"
-      style={{ backgroundColor: APP_BACKGROUND }}
-    >
+    <div className="app-surface flex min-h-screen flex-col">
       <header className="relative flex items-center justify-center border-b border-white/10 px-4 py-4 sm:px-6">
         <MobileBackButton className="absolute left-4 top-1/2 -translate-y-1/2" />
         <div className="text-center">

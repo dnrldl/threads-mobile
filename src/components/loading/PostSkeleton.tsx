@@ -1,13 +1,9 @@
 import Skeleton from "../common/Skeleton";
-import { APP_BACKGROUND } from "../../constants/theme";
 
 // 개별 포스트 카드 스켈레톤
 function PostSkeleton() {
   return (
-    <article
-      className="rounded-3xl border border-neutral-900 p-4 sm:p-6"
-      style={{ backgroundColor: APP_BACKGROUND }}
-    >
+    <article className="app-panel rounded-3xl border border-neutral-900 p-4 sm:p-6">
       <div className="flex items-start gap-3">
         <Skeleton className="h-10 w-10" rounded="full" />
         <div className="flex-1 space-y-2">

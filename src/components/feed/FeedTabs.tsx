@@ -16,7 +16,7 @@ const tabs: Array<{ id: FeedTabId; label: string }> = [
 function FeedTabs({ activeTab, onTabChange }: FeedTabsProps) {
   return (
     <div className="border-b border-white/10">
-      <div className="flex justify-between gap-8">
+      <div className="flex justify-between">
         {tabs.map((tab) => {
           const isActive = tab.id === activeTab;
 

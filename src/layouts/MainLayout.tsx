@@ -1,5 +1,4 @@
 import { useScrollDirection } from "../hooks/useScrollDirection";
-import { APP_BACKGROUND } from "../constants/theme";
 import { cn } from "../utils/cn";
 
 interface MainLayoutProps {
@@ -20,16 +19,12 @@ function MainLayout({
   const hideChrome = direction === "down";
 
   return (
-    <div
-      className="flex min-h-[100dvh] flex-col text-neutral-100"
-      style={{ backgroundColor: APP_BACKGROUND }}
-    >
+    <div className="app-surface flex min-h-[100dvh] flex-col">
       <div
         className={cn(
-          "sticky top-0 z-30 border-b border-white/10 backdrop-blur transition-transform duration-300",
+          "app-surface sticky top-0 z-30 border-b border-white/10 backdrop-blur transition-transform duration-300",
           scrollable ? (hideChrome ? "-translate-y-full" : "translate-y-0") : ""
         )}
-        style={{ backgroundColor: APP_BACKGROUND }}
       >
         {header}
       </div>
@@ -39,9 +34,8 @@ function MainLayout({
 
       <nav
         className={cn(
-          "sticky bottom-0 px-8 z-20 rounded-full mt-auto border-t border-white/10 backdrop-blur transition-transform duration-300 sm:px-10 sm:py-4"
+          "app-surface sticky bottom-0 z-20 mt-auto border-t border-white/10 backdrop-blur transition-transform duration-300 px-8 sm:px-10 sm:py-4"
         )}
-        style={{ backgroundColor: APP_BACKGROUND }}
       >
         <div className="mx-auto flex w-full max-w-4xl items-center justify-between text-lg text-neutral-500 sm:text-xl">
           {bottomNav}

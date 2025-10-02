@@ -5,7 +5,6 @@ import { formatHandle } from "../utils/format";
 import PostActions from "./post/PostActions";
 import PostHeader from "./post/PostHeader";
 import PostDetailModal from "./post/PostDetailModal";
-import { APP_BACKGROUND } from "../constants/theme";
 
 // 개별 포스트 피드를 렌더링하기 위한 프롭 타입
 interface PostCardProps {
@@ -47,10 +46,7 @@ function PostCard({ post }: PostCardProps) {
   // Threads 피드 특유의 흑백 대비와 텍스트 중심 구성을 반영
   return (
     <>
-      <article
-        className="rounded-3xl border border-neutral-800 p-4 shadow-[0_30px_80px_-60px_rgba(15,15,15,0.9)] sm:p-6"
-        style={{ backgroundColor: APP_BACKGROUND }}
-      >
+      <article className="app-panel rounded-3xl border border-neutral-800 p-4 shadow-[0_30px_80px_-60px_rgba(15,15,15,0.9)] sm:p-6">
         <PostHeader
           author={post.author}
           handle={formattedHandle}
@@ -66,7 +62,7 @@ function PostCard({ post }: PostCardProps) {
           <div className="space-y-2">
             <p
               onClick={handleOpenDetail}
-              className="text-sm leading-relaxed text-neutral-100 cursor-pointer"
+              className="text-sm leading-relaxed text-neutral-300 cursor-pointer"
             >
               {captionToDisplay + (isLongCaption ? "..." : "")}{" "}
               {isLongCaption ? (
@@ -83,7 +79,7 @@ function PostCard({ post }: PostCardProps) {
               ) : null}
             </p>
           </div>
-          <div className="mb-2">
+          <div className="mb-2 text-white/60">
             {post.tags.map((tag) => (
               <span
                 key={tag}

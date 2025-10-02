@@ -3,7 +3,6 @@ import { createPortal } from "react-dom";
 import { cn } from "../utils/cn";
 import type { ModalItem } from "../types/common";
 import AppModalItem from "./AppModalItem";
-import { APP_BACKGROUND } from "../constants/theme";
 
 interface AppModalProps {
   isOpen: boolean;
@@ -56,16 +55,14 @@ function AppModal({
         aria-label="모달 닫기"
         type="button"
         onClick={onClose}
-        className="absolute inset-0 h-full w-full backdrop-blur-sm"
-        style={{ backgroundColor: APP_BACKGROUND }}
+        className="app-overlay absolute inset-0 h-full w-full backdrop-blur-sm"
       />
 
       <div
         className={cn(
-          "relative w-full sm:max-w rounded-3xl border border-white/10 p-6 text-neutral-100 shadow-[0_40px_120px_-50px_rgba(0,0,0,0.8)]",
+          "app-panel relative w-full sm:max-w rounded-3xl border border-white/10 p-6 shadow-[0_40px_120px_-50px_rgba(0,0,0,0.8)]",
           className
         )}
-        style={{ backgroundColor: APP_BACKGROUND }}
         role="dialog"
         aria-modal="true"
         aria-label={title ?? ariaLabel}

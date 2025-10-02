@@ -2,6 +2,7 @@ import { useState } from "react";
 import { File, MoreHorizontal, Share, ShieldAlert } from "lucide-react";
 import IconButton from "../IconButton";
 import AppModal from "../AppModal";
+import type { ModalItem } from "../../types/common";
 
 interface PostHeaderProps {
   author: string;
@@ -22,6 +23,21 @@ function PostHeader({
   onAuthorClick,
 }: PostHeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const moreModalItems: ModalItem[] = [
+    {
+      title: "링크 공유",
+      action: () => {},
+      icon: Share,
+    },
+    { title: "저장하기", action: () => {}, icon: File },
+    {
+      title: "게시글 신고",
+      action: () => {},
+      variant: "danger",
+      icon: ShieldAlert,
+    },
+  ];
 
   const handleAuthorClick = () => {
     onAuthorClick?.(authorId);
@@ -71,21 +87,7 @@ function PostHeader({
       <AppModal
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
-        items={[
-          {
-            title: "링크 공유",
-            action: () => {},
-            icon: Share,
-          },
-          { title: "저장하기", action: () => {}, icon: File },
-          {
-            title: "게시글 신고",
-            action: () => {},
-            variant: "danger",
-            icon: ShieldAlert,
-          },
-        ]}
-        // title="게시글 옵션"
+        items={moreModalItems}
       />
     </header>
   );

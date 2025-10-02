@@ -1,6 +1,5 @@
 import { Plus } from "lucide-react";
 import type { Story } from "../types/feed";
-import { APP_BACKGROUND } from "../constants/theme";
 
 // Threads 스타일의 라운드 아바타 컴포넌트
 interface StoryRingProps {
@@ -20,8 +19,7 @@ function StoryRing({ story }: StoryRingProps) {
     <button className="flex w-14 flex-col items-center gap-1.5 text-[10px] text-neutral-400 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 sm:w-16 sm:text-[11px]">
       <span className="relative flex h-11 w-11 items-center justify-center sm:h-12 sm:w-12">
         <span
-          className={`flex h-full w-full items-center justify-center rounded-full border ${ringClasses}`}
-          style={{ backgroundColor: APP_BACKGROUND }}
+          className={`app-panel flex h-full w-full items-center justify-center rounded-full border ${ringClasses}`}
         >
           <span className="h-9 w-9 overflow-hidden rounded-full bg-gradient-to-br from-neutral-800 via-neutral-700 to-black sm:h-10 sm:w-10" />
         </span>

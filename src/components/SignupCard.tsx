@@ -3,7 +3,6 @@ import { useState } from "react";
 import IconButton from "./IconButton";
 import BaseButton from "./BaseButton";
 import { Eye, EyeOff, Lock, Mail, User } from "lucide-react";
-import { APP_BACKGROUND } from "../constants/theme";
 
 // 신규 사용자 가입 폼을 출력하는 카드 컴포넌트
 function SignupCard() {
@@ -11,10 +10,7 @@ function SignupCard() {
   const [showConfirm, setShowConfirm] = useState(false);
 
   return (
-    <div
-      className="w-full max-w-sm rounded-2xl border border-neutral-800 p-5 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.8)] sm:p-6"
-      style={{ backgroundColor: APP_BACKGROUND }}
-    >
+    <div className="app-panel w-full max-w-sm rounded-2xl border border-neutral-800 p-5 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.8)] sm:p-6">
       <div className="space-y-1">
         {/* <p className="text-xl font-semibold text-neutral-200">회원 가입</p> */}
         <p className="text-xs text-neutral-500">

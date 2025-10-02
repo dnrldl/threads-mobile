@@ -3,7 +3,7 @@
 :root {
   color-scheme: dark;
   --app-bg: rgba(16, 16, 16, 0.85);
-  --app-text: rgba(245, 245, 245, 0.92);
+  --app-text: rgb(243, 245, 247);
 }
 
 body {
@@ -11,6 +11,20 @@ body {
   min-height: 100vh;
   background-color: var(--app-bg);
   color: var(--app-text);
+}
+
+.app-surface {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+}
+
+.app-panel {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+}
+
+.app-overlay {
+  background-color: rgba(16, 16, 16, 0.65);
 }
 
 /* Optional legacy styles kept as comments
