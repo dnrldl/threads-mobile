@@ -3,9 +3,16 @@ import MainLayout from "../layouts/MainLayout";
 import MainHeader from "../components/MainHeader";
 import MainBottomNav from "../components/MainBottomNav";
 import BaseButton from "../components/BaseButton";
+import Select, { type SelectOption } from "../components/common/Select";
 
 function ReportPage() {
   const [category, setCategory] = useState("bug");
+  const categoryOptions: Array<SelectOption<typeof category>> = [
+    { value: "bug", label: "버그 또는 오류" },
+    { value: "abuse", label: "부적절한 콘텐츠" },
+    { value: "safety", label: "안전/보안 문제" },
+    { value: "other", label: "기타" },
+  ];
   const [description, setDescription] = useState("");
   const [contact, setContact] = useState("");
 
@@ -35,19 +42,10 @@ function ReportPage() {
         </header>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-5">
-          <label className="block text-sm font-semibold text-neutral-300">
-            신고 유형
-            <select
-              className="mt-2 w-full rounded-xl border border-white/10 bg-black/30 px-4 py-2 text-sm text-white focus:border-white/40 focus:outline-none"
-              value={category}
-              onChange={(event) => setCategory(event.target.value)}
-            >
-              <option value="bug">버그 또는 오류</option>
-              <option value="abuse">부적절한 콘텐츠</option>
-              <option value="safety">안전/보안 문제</option>
-              <option value="other">기타</option>
-            </select>
-          </label>
+          <div className="space-y-2">
+            <p className="text-sm font-semibold text-neutral-300">신고 유형</p>
+            <Select value={category} onChange={setCategory} options={categoryOptions} />
+          </div>
 
           <label className="block text-sm font-semibold text-neutral-300">
             상세 설명

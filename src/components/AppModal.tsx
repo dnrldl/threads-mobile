@@ -1,5 +1,5 @@
-import { useEffect, type ReactNode } from "react";
-import { createPortal } from "react-dom";
+import { Fragment, type ReactNode } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 import { cn } from "../utils/cn";
 import type { ModalItem } from "../types/common";
 import AppModalItem from "./AppModalItem";
@@ -16,7 +16,6 @@ interface AppModalProps {
   ariaLabel?: string;
 }
 
-// Threads 스타일의 공통 모달 컴포넌트
 function AppModal({
   isOpen,
   onClose,
@@ -28,71 +27,70 @@ function AppModal({
   children,
   ariaLabel,
 }: AppModalProps) {
-  useEffect(() => {
-    if (!isOpen || typeof document === "undefined") return undefined;
+  return (
+    <Transition show={isOpen} as={Fragment}>
+      <Dialog as="div" className="relative z-50" onClose={onClose}>
+        <Transition.Child
+          as={Fragment}
+          enter="ease-out duration-200"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="ease-in duration-150"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <div className="app-overlay fixed inset-0 backdrop-blur-sm" />
+        </Transition.Child>
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-    };
+        <div className="fixed inset-0 overflow-y-auto px-4">
+          <div className="flex min-h-full items-center justify-center py-8">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-200"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-150"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <Dialog.Panel
+                className={cn(
+                  "app-panel relative w-full max-w-lg rounded-3xl border border-white/10 p-6 text-neutral-100 shadow-[0_40px_120px_-50px_rgba(0,0,0,0.8)]",
+                  className
+                )}
+                aria-label={ariaLabel ?? title}
+              >
+                {(title || description) && (
+                  <div className="space-y-2">
+                    {title ? (
+                      <Dialog.Title className="text-lg font-semibold text-white">
+                        {title}
+                      </Dialog.Title>
+                    ) : null}
+                    {description ? (
+                      <Dialog.Description className="text-sm text-neutral-400">
+                        {description}
+                      </Dialog.Description>
+                    ) : null}
+                  </div>
+                )}
 
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
+                {(children || (items && items.length > 0)) && (
+                  <div className="mt-4 text-sm text-neutral-100">
+                    {children}
+                    {items ? <AppModalItem items={items} /> : null}
+                  </div>
+                )}
 
-    return () => {
-      document.body.style.overflow = originalOverflow;
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen, onClose]);
-
-  if (!isOpen || typeof document === "undefined") {
-    return null;
-  }
-
-  return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
-      <button
-        aria-label="모달 닫기"
-        type="button"
-        onClick={onClose}
-        className="app-overlay absolute inset-0 h-full w-full backdrop-blur-sm"
-      />
-
-      <div
-        className={cn(
-          "app-panel relative w-full sm:max-w rounded-3xl border border-white/10 p-6 shadow-[0_40px_120px_-50px_rgba(0,0,0,0.8)]",
-          className
-        )}
-        role="dialog"
-        aria-modal="true"
-        aria-label={title ?? ariaLabel}
-      >
-        {title || description ? (
-          <div className="flex items-start justify-between gap-4">
-            <div className="space-y-2">
-              {title ? (
-                <h2 className="text-lg font-semibold text-white">{title}</h2>
-              ) : null}
-              {description ? (
-                <p className="text-sm text-neutral-400">{description}</p>
-              ) : null}
-            </div>
+                {footer ? (
+                  <div className="mt-6 border-t border-white/10 pt-4">{footer}</div>
+                ) : null}
+              </Dialog.Panel>
+            </Transition.Child>
           </div>
-        ) : null}
-
-        {children || (items && items.length > 0) ? (
-          <div className=" text-sm text-neutral-200">
-            {children}
-            {items ? <AppModalItem items={items} /> : null}
-          </div>
-        ) : null}
-
-        {footer ? (
-          <div className="mt-6 border-t border-white/10 pt-4">{footer}</div>
-        ) : null}
-      </div>
-    </div>,
-    document.body
+        </div>
+      </Dialog>
+    </Transition>
   );
 }
 

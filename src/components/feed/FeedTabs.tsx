@@ -1,3 +1,4 @@
+import { Tab, TabGroup, TabList } from "@headlessui/react";
 import type { Dispatch, SetStateAction } from "react";
 import { cn } from "../../utils/cn";
 
@@ -15,33 +16,36 @@ const tabs: Array<{ id: FeedTabId; label: string }> = [
 
 function FeedTabs({ activeTab, onTabChange }: FeedTabsProps) {
   return (
-    <div className="border-b border-white/10">
-      <div className="flex justify-between">
-        {tabs.map((tab) => {
-          const isActive = tab.id === activeTab;
-
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              className={cn(
-                "flex-1 relative pb-3 text-sm tracking-wide uppercase text-neutral-500 transition hover:text-white",
-                isActive && "text-white"
-              )}
-              onClick={() => onTabChange(tab.id)}
-            >
-              {tab.label}
-              <span
-                className={cn(
-                  "absolute left-0 bottom-0 h-0.5 w-full rounded-full bg-white transition-opacity",
-                  isActive ? "opacity-100" : "opacity-0"
-                )}
-              />
-            </button>
-          );
-        })}
-      </div>
-    </div>
+    <TabGroup
+      selectedIndex={tabs.findIndex((tab) => tab.id === activeTab)}
+      onChange={(index) => onTabChange(tabs[index]?.id ?? "for-you")}
+    >
+      <TabList className="flex justify-between border-b border-white/10">
+        {tabs.map((tab) => (
+          <Tab
+            key={tab.id}
+            className={({ selected }) =>
+              cn(
+                "relative flex-1 pb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500 transition focus:outline-none cursor-pointer",
+                selected ? "text-white" : "hover:text-white"
+              )
+            }
+          >
+            {({ selected }) => (
+              <>
+                {tab.label}
+                <span
+                  className={cn(
+                    "absolute left-0 bottom-0 h-0.5 w-full rounded-full bg-white transition-opacity",
+                    selected ? "opacity-100" : "opacity-0"
+                  )}
+                />
+              </>
+            )}
+          </Tab>
+        ))}
+      </TabList>
+    </TabGroup>
   );
 }
 
