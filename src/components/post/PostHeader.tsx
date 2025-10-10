@@ -1,9 +1,9 @@
-import { File, MoreHorizontal, Share, ShieldAlert } from "lucide-react";
-import { useState } from "react";
-import type { ModalItem } from "../../types/common";
-import AppModal from "../AppModal";
-import IconButton from "../IconButton";
-import { toast } from "sonner";
+import { File, MoreHorizontal, Share, ShieldAlert } from 'lucide-react';
+import { useState } from 'react';
+import type { ModalItem } from '../../types/common';
+import AppModal from '../AppModal';
+import IconButton from '../IconButton';
+import { toast } from 'sonner';
 
 interface PostHeaderProps {
   author: string;
@@ -16,36 +16,28 @@ interface PostHeaderProps {
 }
 
 // 카드 상단의 작성자 정보와 팔로우 버튼을 담당
-function PostHeader({
-  author,
-  timeAgo,
-  avatarHue,
-  authorId,
-  onAuthorClick,
-}: PostHeaderProps) {
+function PostHeader({ author, timeAgo, avatarHue, authorId, onAuthorClick }: PostHeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const moreModalItems: ModalItem[] = [
     {
-      title: "링크 복사",
+      title: '링크 복사',
       action: () => {
         try {
-          navigator.clipboard.writeText(
-            `${window.location.origin}/${authorId}`
-          );
-          toast.info("링크 복사됨!");
+          navigator.clipboard.writeText(`${window.location.origin}/${authorId}`);
+          toast.info('링크 복사됨!');
         } catch (error) {
-          console.error("링크 복사 실패:", error);
-          toast.error("링크 복사 실패!");
+          console.error('링크 복사 실패:', error);
+          toast.error('링크 복사 실패!');
         }
       },
       icon: Share,
     },
-    { title: "저장하기", action: () => {}, icon: File },
+    { title: '저장하기', action: () => {}, icon: File },
     {
-      title: "게시글 신고",
+      title: '게시글 신고',
       action: () => {},
-      variant: "danger",
+      variant: 'danger',
       icon: ShieldAlert,
     },
   ];
@@ -75,9 +67,7 @@ function PostHeader({
 
           <div>
             {/* 작성자 */}
-            <span className="text-sm mr-2 font-semibold text-white">
-              {author}
-            </span>
+            <span className="mr-2 text-sm font-semibold text-white">{author}</span>
             {/* 작성 시간 */}
             <span className="mt-0.5 flex-wrap items-center text-xs text-neutral-500">
               {timeAgo}
@@ -95,11 +85,7 @@ function PostHeader({
         />
       </div>
 
-      <AppModal
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-        items={moreModalItems}
-      />
+      <AppModal isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} items={moreModalItems} />
     </header>
   );
 }

@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
-import { cn } from "../../utils/cn";
+import type { ReactNode } from 'react';
+import { cn } from '../../utils/cn';
 
 type TabId = string;
 
@@ -25,17 +25,17 @@ function TabBar<T extends TabId>({
   tabClassName,
 }: TabBarProps<T>) {
   return (
-    <nav className={cn("flex gap-2 border-b border-white/10", className)}>
+    <nav className={cn('flex gap-2 border-b border-white/10', className)}>
       {tabs.map((tab) => (
         <button
           key={tab.id}
           type="button"
           onClick={() => onTabChange(tab.id)}
           className={cn(
-            "flex-1 border-b-2 pt-1 pb-3 text-sm font-semibold transition-colors sm:text-base",
+            'flex-1 border-b-2 pt-1 pb-3 text-sm font-semibold transition-colors sm:text-base',
             activeTab === tab.id
-              ? "border-white text-white"
-              : "border-transparent text-neutral-500 hover:text-white",
+              ? 'border-white text-white'
+              : 'border-transparent text-neutral-500 hover:text-white',
             tabClassName
           )}
         >

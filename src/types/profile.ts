@@ -1,4 +1,4 @@
-import type { Post } from "./feed";
+import type { Post } from './feed';
 
 export interface ProfileStats {
   threads: number;

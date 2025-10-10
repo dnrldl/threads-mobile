@@ -1,5 +1,5 @@
-import { useScrollDirection } from "../hooks/useScrollDirection";
-import { cn } from "../utils/cn";
+import { useScrollDirection } from '../hooks/useScrollDirection';
+import { cn } from '../utils/cn';
 
 interface MainLayoutProps {
   header: React.ReactNode;
@@ -9,21 +9,16 @@ interface MainLayoutProps {
 }
 
 // 전체 뼈대를 구성하는 레이아웃
-function MainLayout({
-  header,
-  children,
-  bottomNav,
-  scrollable,
-}: MainLayoutProps) {
+function MainLayout({ header, children, bottomNav, scrollable }: MainLayoutProps) {
   const direction = useScrollDirection();
-  const hideChrome = direction === "down";
+  const hideChrome = direction === 'down';
 
   return (
     <div className="app-surface flex min-h-[100dvh] flex-col">
       <div
         className={cn(
-          "app-surface sticky top-0 z-30 border-b border-white/10 backdrop-blur transition-transform duration-300",
-          scrollable ? (hideChrome ? "-translate-y-full" : "translate-y-0") : ""
+          'app-surface sticky top-0 z-30 border-b border-white/10 backdrop-blur transition-transform duration-300',
+          scrollable ? (hideChrome ? '-translate-y-full' : 'translate-y-0') : ''
         )}
       >
         {header}
@@ -34,7 +29,7 @@ function MainLayout({
 
       <nav
         className={cn(
-          "app-surface sticky bottom-0 z-20 mt-auto border-t border-white/10 backdrop-blur transition-transform duration-300 px-8 sm:px-10 sm:py-4"
+          'app-surface sticky bottom-0 z-20 mt-auto border-t border-white/10 px-8 backdrop-blur transition-transform duration-300 sm:px-10 sm:py-4'
         )}
       >
         <div className="mx-auto flex w-full max-w-4xl items-center justify-between text-lg text-neutral-500 sm:text-xl">

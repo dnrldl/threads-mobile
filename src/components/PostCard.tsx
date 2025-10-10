@@ -1,10 +1,10 @@
-import { useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import type { Post } from "../types/feed";
-import { formatHandle } from "../utils/format";
-import PostActions from "./post/PostActions";
-import PostHeader from "./post/PostHeader";
-import PostDetailModal from "./post/PostDetailModal";
+import { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import type { Post } from '../types/feed';
+import { formatHandle } from '../utils/format';
+import PostActions from './post/PostActions';
+import PostHeader from './post/PostHeader';
+import PostDetailModal from './post/PostDetailModal';
 
 // 개별 포스트 피드를 렌더링하기 위한 프롭 타입
 interface PostCardProps {
@@ -17,10 +17,7 @@ function PostCard({ post }: PostCardProps) {
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const [isCaptionExpanded, setIsCaptionExpanded] = useState(false);
   const navigate = useNavigate();
-  const formattedHandle = useMemo(
-    () => formatHandle(post.author),
-    [post.author]
-  );
+  const formattedHandle = useMemo(() => formatHandle(post.author), [post.author]);
 
   const truncatedCaption = useMemo(() => {
     if (post.caption.length <= CAPTION_PREVIEW_LENGTH) return post.caption;
@@ -62,29 +59,26 @@ function PostCard({ post }: PostCardProps) {
           <div className="space-y-2">
             <p
               onClick={handleOpenDetail}
-              className="text-sm leading-relaxed text-neutral-300 cursor-pointer"
+              className="cursor-pointer text-sm leading-relaxed text-neutral-300"
             >
-              {captionToDisplay + (isLongCaption ? "..." : "")}{" "}
+              {captionToDisplay + (isLongCaption ? '...' : '')}{' '}
               {isLongCaption ? (
                 <button
                   type="button"
-                  className="text-xs font-semibold text-neutral-400 hover:text-neutral-300 cursor-pointer"
+                  className="cursor-pointer text-xs font-semibold text-neutral-400 hover:text-neutral-300"
                   onClick={(event) => {
                     event.stopPropagation();
                     setIsCaptionExpanded((value) => !value);
                   }}
                 >
-                  {isCaptionExpanded ? "접기" : "더 보기"}
+                  {isCaptionExpanded ? '접기' : '더 보기'}
                 </button>
               ) : null}
             </p>
           </div>
           <div className="mb-2 text-white/60">
             {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="ml-1 text-xs font-semibold text-white/60"
-              >
+              <span key={tag} className="ml-1 text-xs font-semibold text-white/60">
                 {tag}
               </span>
             ))}
@@ -94,11 +88,7 @@ function PostCard({ post }: PostCardProps) {
         </div>
       </article>
 
-      <PostDetailModal
-        post={post}
-        isOpen={isDetailOpen}
-        onClose={handleCloseDetail}
-      />
+      <PostDetailModal post={post} isOpen={isDetailOpen} onClose={handleCloseDetail} />
     </>
   );
 }

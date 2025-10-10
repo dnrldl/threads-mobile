@@ -1,8 +1,8 @@
-import { CalendarDays, Link2, MapPin, Share2 } from "lucide-react";
-import type { ReactNode } from "react";
-import { formatCount } from "../../utils/format";
-import type { ProfileData } from "../../types/profile";
-import BaseButton from "../BaseButton";
+import { CalendarDays, Link2, MapPin, Share2 } from 'lucide-react';
+import type { ReactNode } from 'react';
+import { formatCount } from '../../utils/format';
+import type { ProfileData } from '../../types/profile';
+import BaseButton from '../BaseButton';
 
 interface ProfileHeroProps {
   profile: ProfileData;
@@ -25,22 +25,16 @@ function ProfileHero({
       <div className="flex w-full items-start justify-between gap-6">
         <div className="space-y-3">
           <div className="space-y-1">
-            <h2 className="text-2xl font-semibold text-white sm:text-3xl">
-              {profile.name}
-            </h2>
-            <p className="text-sm text-neutral-500 sm:text-base">
-              @{profile.handle}
-            </p>
+            <h2 className="text-2xl font-semibold text-white sm:text-3xl">{profile.name}</h2>
+            <p className="text-sm text-neutral-500 sm:text-base">@{profile.handle}</p>
           </div>
-          <p className="text-sm leading-relaxed text-neutral-200 sm:text-base">
-            {profile.bio}
-          </p>
+          <p className="text-sm leading-relaxed text-neutral-200 sm:text-base">{profile.bio}</p>
           {profile.badges.length ? (
             <div className="flex flex-wrap items-center gap-2">
               {profile.badges.map((badge) => (
                 <span
                   key={badge}
-                  className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-neutral-200"
+                  className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-[11px] font-semibold tracking-wide text-neutral-200 uppercase"
                 >
                   {badge}
                 </span>
@@ -118,11 +112,7 @@ function ProfileHero({
                 <Share2 className="h-3.5 w-3.5" aria-hidden />
                 공유
               </BaseButton>
-              <BaseButton
-                size="sm"
-                className="text-xs sm:text-sm"
-                onClick={onEditClick}
-              >
+              <BaseButton size="sm" className="text-xs sm:text-sm" onClick={onEditClick}>
                 프로필 편집
               </BaseButton>
             </>
@@ -131,11 +121,7 @@ function ProfileHero({
               <BaseButton size="sm" className="text-xs sm:text-sm">
                 팔로우
               </BaseButton>
-              <BaseButton
-                size="sm"
-                variant="outline"
-                className="text-xs sm:text-sm"
-              >
+              <BaseButton size="sm" variant="outline" className="text-xs sm:text-sm">
                 메시지
               </BaseButton>
             </>

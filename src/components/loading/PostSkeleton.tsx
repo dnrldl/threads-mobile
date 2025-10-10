@@ -1,4 +1,4 @@
-import Skeleton from "../common/Skeleton";
+import Skeleton from '../common/Skeleton';
 
 // 개별 포스트 카드 스켈레톤
 function PostSkeleton() {

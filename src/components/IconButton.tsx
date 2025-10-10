@@ -1,5 +1,5 @@
-import type { ButtonHTMLAttributes } from "react";
-import type { LucideIcon } from "lucide-react";
+import type { ButtonHTMLAttributes } from 'react';
+import type { LucideIcon } from 'lucide-react';
 
 // 아이콘과 상호작용 스타일을 공통으로 묶어주는 버튼 컴포넌트
 interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,9 +13,9 @@ interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 function IconButton({
   icon: Icon,
   size = 6,
-  className = "",
-  iconClassName = "",
-  type = "button",
+  className = '',
+  iconClassName = '',
+  type = 'button',
   color,
   fill,
   ...buttonProps
@@ -24,7 +24,7 @@ function IconButton({
   return (
     <button
       type={type}
-      className={`cursor-pointer transition duration-150 active:scale-95 hover:scale-105 motion-reduce:transition-none motion-reduce:transform-none ${className}`.trim()}
+      className={`cursor-pointer transition duration-150 hover:scale-105 active:scale-95 motion-reduce:transform-none motion-reduce:transition-none ${className}`.trim()}
       {...buttonProps}
     >
       <Icon

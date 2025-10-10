@@ -1,8 +1,8 @@
-import { Tab, TabGroup, TabList } from "@headlessui/react";
-import type { Dispatch, SetStateAction } from "react";
-import { cn } from "../../utils/cn";
+import { Tab, TabGroup, TabList } from '@headlessui/react';
+import type { Dispatch, SetStateAction } from 'react';
+import { cn } from '../../utils/cn';
 
-export type FeedTabId = "for-you" | "following";
+export type FeedTabId = 'for-you' | 'following';
 
 interface FeedTabsProps {
   activeTab: FeedTabId;
@@ -10,15 +10,15 @@ interface FeedTabsProps {
 }
 
 const tabs: Array<{ id: FeedTabId; label: string }> = [
-  { id: "for-you", label: "추천" },
-  { id: "following", label: "팔로잉" },
+  { id: 'for-you', label: '추천' },
+  { id: 'following', label: '팔로잉' },
 ];
 
 function FeedTabs({ activeTab, onTabChange }: FeedTabsProps) {
   return (
     <TabGroup
       selectedIndex={tabs.findIndex((tab) => tab.id === activeTab)}
-      onChange={(index) => onTabChange(tabs[index]?.id ?? "for-you")}
+      onChange={(index) => onTabChange(tabs[index]?.id ?? 'for-you')}
     >
       <TabList className="flex justify-between border-b border-white/10">
         {tabs.map((tab) => (
@@ -26,8 +26,8 @@ function FeedTabs({ activeTab, onTabChange }: FeedTabsProps) {
             key={tab.id}
             className={({ selected }) =>
               cn(
-                "relative flex-1 pb-3 text-sm font-semibold uppercase tracking-wide text-neutral-500 transition focus:outline-none cursor-pointer",
-                selected ? "text-white" : "hover:text-white"
+                'relative flex-1 cursor-pointer pb-3 text-sm font-semibold tracking-wide text-neutral-500 uppercase transition focus:outline-none',
+                selected ? 'text-white' : 'hover:text-white'
               )
             }
           >
@@ -36,8 +36,8 @@ function FeedTabs({ activeTab, onTabChange }: FeedTabsProps) {
                 {tab.label}
                 <span
                   className={cn(
-                    "absolute left-0 bottom-0 h-0.5 w-full rounded-full bg-white transition-opacity",
-                    selected ? "opacity-100" : "opacity-0"
+                    'absolute bottom-0 left-0 h-0.5 w-full rounded-full bg-white transition-opacity',
+                    selected ? 'opacity-100' : 'opacity-0'
                   )}
                 />
               </>

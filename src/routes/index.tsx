@@ -1,10 +1,12 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import FeedPage from "../pages/FeedPage";
-import LoginPage from "../pages/LoginPage";
-import NotFoundPage from "../pages/NotFoundPage";
-import ProfilePage from "../pages/ProfilePage";
-import ReportPage from "../pages/ReportPage";
-import SignupPage from "../pages/SignupPage";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import FeedPage from '../pages/FeedPage';
+import LoginPage from '../pages/LoginPage';
+import NotFoundPage from '../pages/NotFoundPage';
+import ProfilePage from '../pages/ProfilePage';
+import ReportPage from '../pages/ReportPage';
+import PostDetailPage from '../pages/PostDetailPage';
+import SignupPage from '../pages/SignupPage';
+import SearchPage from '../pages/SearchPage';
 
 function AppRoutes() {
   return (
@@ -13,8 +15,10 @@ function AppRoutes() {
         <Route path="/" element={<FeedPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/myprofile" element={<ProfilePage />} />
         <Route path="/profile/:id" element={<ProfilePage />} />
+        <Route path="/posts/:id" element={<PostDetailPage />} />
         <Route path="/report" element={<ReportPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

@@ -1,4 +1,4 @@
-import Skeleton from "../common/Skeleton";
+import Skeleton from '../common/Skeleton';
 
 // 프로필 히어로 영역 스켈레톤
 function ProfileHeroSkeleton() {

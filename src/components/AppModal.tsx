@@ -1,14 +1,8 @@
-import { Fragment, type ReactNode } from "react";
-import {
-  Dialog,
-  DialogPanel,
-  DialogTitle,
-  Transition,
-  TransitionChild,
-} from "@headlessui/react";
-import { cn } from "../utils/cn";
-import type { ModalItem } from "../types/common";
-import AppModalItem from "./AppModalItem";
+import { Fragment, type ReactNode } from 'react';
+import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
+import { cn } from '../utils/cn';
+import type { ModalItem } from '../types/common';
+import AppModalItem from './AppModalItem';
 
 interface AppModalProps {
   isOpen: boolean;
@@ -61,7 +55,7 @@ function AppModal({
             >
               <DialogPanel
                 className={cn(
-                  "app-panel relative w-full max-w-lg rounded-3xl border border-white/10 p-6 text-neutral-100 shadow-[0_40px_120px_-50px_rgba(0,0,0,0.8)]",
+                  'app-panel relative w-full max-w-lg rounded-3xl border border-white/10 p-6 text-neutral-100 shadow-[0_40px_120px_-50px_rgba(0,0,0,0.8)]',
                   className
                 )}
                 aria-label={ariaLabel ?? title}
@@ -88,11 +82,7 @@ function AppModal({
                   </div>
                 )}
 
-                {footer ? (
-                  <div className="mt-6 border-t border-white/10 pt-4">
-                    {footer}
-                  </div>
-                ) : null}
+                {footer ? <div className="mt-6 border-t border-white/10 pt-4">{footer}</div> : null}
               </DialogPanel>
             </TransitionChild>
           </div>

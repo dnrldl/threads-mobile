@@ -1,13 +1,13 @@
-import { Fragment, useMemo } from "react";
+import { Fragment, useMemo } from 'react';
 import {
   Listbox,
   ListboxButton,
   ListboxOption,
   ListboxOptions,
   Transition,
-} from "@headlessui/react";
-import { Check, ChevronDown } from "lucide-react";
-import { cn } from "../../utils/cn";
+} from '@headlessui/react';
+import { Check, ChevronDown } from 'lucide-react';
+import { cn } from '../../utils/cn';
 
 export interface SelectOption<T extends string = string> {
   value: T;
@@ -27,7 +27,7 @@ function Select<T extends string>({
   value,
   onChange,
   options,
-  placeholder = "선택",
+  placeholder = '선택',
   className,
   buttonClassName,
 }: SelectProps<T>) {
@@ -38,19 +38,15 @@ function Select<T extends string>({
 
   return (
     <Listbox value={value} onChange={onChange}>
-      <div className={cn("relative", className)}>
+      <div className={cn('relative', className)}>
         <ListboxButton
           className={cn(
-            "app-panel flex w-full items-center justify-between rounded-xl border border-white/10 px-4 py-2 text-left text-sm font-medium text-white focus:outline-none",
+            'app-panel flex w-full items-center justify-between rounded-xl border border-white/10 px-4 py-2 text-left text-sm font-medium text-white focus:outline-none',
             buttonClassName
           )}
         >
           <span className="block truncate">
-            {selected ? (
-              selected.label
-            ) : (
-              <span className="text-neutral-500">{placeholder}</span>
-            )}
+            {selected ? selected.label : <span className="text-neutral-500">{placeholder}</span>}
           </span>
           <ChevronDown className="ml-2 h-4 w-4 opacity-70" aria-hidden />
         </ListboxButton>
@@ -67,25 +63,18 @@ function Select<T extends string>({
                 key={option.value}
                 className={({ active }) =>
                   cn(
-                    "flex cursor-pointer items-center gap-2 px-4 py-2 text-sm",
-                    active ? "bg-white/10 text-white" : "text-neutral-100"
+                    'flex cursor-pointer items-center gap-2 px-4 py-2 text-sm',
+                    active ? 'bg-white/10 text-white' : 'text-neutral-100'
                   )
                 }
                 value={option.value}
               >
                 {({ selected: isSelected }) => (
                   <>
-                    <span
-                      className={cn(
-                        "block truncate",
-                        isSelected && "font-semibold"
-                      )}
-                    >
+                    <span className={cn('block truncate', isSelected && 'font-semibold')}>
                       {option.label}
                     </span>
-                    {isSelected ? (
-                      <Check className="ml-auto h-4 w-4" aria-hidden />
-                    ) : null}
+                    {isSelected ? <Check className="ml-auto h-4 w-4" aria-hidden /> : null}
                   </>
                 )}
               </ListboxOption>

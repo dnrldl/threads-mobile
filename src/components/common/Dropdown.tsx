@@ -1,12 +1,6 @@
-import { Fragment, type ReactNode } from "react";
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-  Transition,
-} from "@headlessui/react";
-import { cn } from "../../utils/cn";
+import { Fragment, type ReactNode } from 'react';
+import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react';
+import { cn } from '../../utils/cn';
 
 export interface DropdownItem {
   id: string;
@@ -19,7 +13,7 @@ export interface DropdownItem {
 interface DropdownProps {
   trigger: ReactNode;
   items: DropdownItem[];
-  align?: "left" | "right";
+  align?: 'left' | 'right';
   triggerClassName?: string;
   menuClassName?: string;
 }
@@ -27,7 +21,7 @@ interface DropdownProps {
 function Dropdown({
   trigger,
   items,
-  align = "left",
+  align = 'left',
   triggerClassName,
   menuClassName,
 }: DropdownProps) {
@@ -35,7 +29,7 @@ function Dropdown({
     <Menu as="div" className="relative inline-flex">
       <MenuButton
         className={cn(
-          "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-bolds text-neutral-200 transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 active:scale-90",
+          'font-bolds inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm text-neutral-200 transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 active:scale-90',
           triggerClassName
         )}
       >
@@ -53,8 +47,8 @@ function Dropdown({
       >
         <MenuItems
           className={cn(
-            "app-panel absolute z-40 mt-2 top-10 min-w-[160px] overflow-hidden rounded-2xl border border-white/10 p-1 text-sm shadow-lg backdrop-blur focus:outline-none",
-            align === "right" ? "right-0" : "left-0",
+            'app-panel absolute top-10 z-40 mt-2 min-w-[160px] overflow-hidden rounded-2xl border border-white/10 p-1 text-sm shadow-lg backdrop-blur focus:outline-none',
+            align === 'right' ? 'right-0' : 'left-0',
             menuClassName
           )}
         >
@@ -64,9 +58,9 @@ function Dropdown({
                 <button
                   type="button"
                   className={cn(
-                    "w-full rounded-xl px-3 py-2 text-left transition cursor-pointer",
-                    focus && "bg-white/10",
-                    itemDisabled && "cursor-not-allowed opacity-50",
+                    'w-full cursor-pointer rounded-xl px-3 py-2 text-left transition',
+                    focus && 'bg-white/10',
+                    itemDisabled && 'cursor-not-allowed opacity-50',
                     className
                   )}
                   onClick={() => {

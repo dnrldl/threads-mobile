@@ -1,4 +1,4 @@
-import SettingButton from "./common/SettingButton";
+import SettingButton from './common/SettingButton';
 
 interface MainHeaderProps {
   title?: string;
@@ -7,19 +7,12 @@ interface MainHeaderProps {
 }
 
 // 상단 헤더 컴포넌트
-function MainHeader({
-  title = "Threads",
-  leftSlot,
-  rightSlot,
-}: MainHeaderProps) {
+function MainHeader({ title = 'Threads', leftSlot, rightSlot }: MainHeaderProps) {
   return (
     <div className="app-surface sticky top-0 border-b border-white/10 backdrop-blur">
-      <header
-        className="mx-auto relative w-full max-w-4xl px-4 py-3 sm:px-8 sm:py-4 lg:px-10
-                     grid grid-cols-3 items-center"
-      >
+      <header className="relative mx-auto grid w-full max-w-4xl grid-cols-3 items-center px-4 py-3 sm:px-8 sm:py-4 lg:px-10">
         {/* 왼쪽 */}
-        <div className="justify-self-start flex items-center">{leftSlot}</div>
+        <div className="flex items-center justify-self-start">{leftSlot}</div>
 
         {/* 가운데 */}
         <h1 className="text-center text-lg font-semibold tracking-tight text-white sm:text-2xl">
@@ -27,7 +20,7 @@ function MainHeader({
         </h1>
 
         {/* 오른쪽 */}
-        <div className="justify-self-end flex items-center">
+        <div className="flex items-center justify-self-end">
           {rightSlot ? rightSlot : <SettingButton />}
         </div>
       </header>

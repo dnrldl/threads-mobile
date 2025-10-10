@@ -1,5 +1,5 @@
-import { Smile } from "lucide-react";
-import type { Ref } from "react";
+import { Smile } from 'lucide-react';
+import type { Ref } from 'react';
 
 interface PostCommentFormProps {
   placeholder?: string;
@@ -9,8 +9,8 @@ interface PostCommentFormProps {
 
 // 답글 입력 폼
 function PostCommentForm({
-  placeholder = "답글 추가...",
-  submitLabel = "게시",
+  placeholder = '답글 추가...',
+  submitLabel = '게시',
   inputRef,
 }: PostCommentFormProps) {
   return (
@@ -23,10 +23,7 @@ function PostCommentForm({
         className="flex-1 bg-transparent text-sm text-neutral-200 outline-none placeholder:text-neutral-600"
         placeholder={placeholder}
       />
-      <button
-        type="button"
-        className="text-xs font-semibold text-white/80 hover:text-white"
-      >
+      <button type="button" className="text-xs font-semibold text-white/80 hover:text-white">
         {submitLabel}
       </button>
     </div>

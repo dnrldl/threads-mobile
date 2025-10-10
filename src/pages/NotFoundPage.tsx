@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import MainBottomNav from "../components/MainBottomNav";
-import MainHeader from "../components/MainHeader";
-import MainLayout from "../layouts/MainLayout";
+import { Link } from 'react-router-dom';
+import MainBottomNav from '../components/MainBottomNav';
+import MainHeader from '../components/MainHeader';
+import MainLayout from '../layouts/MainLayout';
 
 function NotFoundPage() {
   return (

@@ -1,32 +1,32 @@
-import { Menu } from "lucide-react";
-import Dropdown, { type DropdownItem } from "./Dropdown";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Menu } from 'lucide-react';
+import Dropdown, { type DropdownItem } from './Dropdown';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SettingButton = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const dropdownItems: DropdownItem[] = [
-    { id: "settings", label: "설정", onSelect: () => console.log("설정") },
+    { id: 'settings', label: '설정', onSelect: () => console.log('설정') },
     {
-      id: "theme",
-      label: "테마 전환",
-      onSelect: () => console.log("테마"),
+      id: 'theme',
+      label: '테마 전환',
+      onSelect: () => console.log('테마'),
     },
 
     {
-      id: "report",
-      label: "문제 신고",
+      id: 'report',
+      label: '문제 신고',
       onSelect: () => {
-        if (location.pathname == "/report") return;
-        navigate("/report");
+        if (location.pathname == '/report') return;
+        navigate('/report');
       },
     },
     {
-      id: "logout",
-      label: "로그아웃",
-      className: "text-red-400 hover:bg-red-500/20",
-      onSelect: () => console.log("로그아웃"),
+      id: 'logout',
+      label: '로그아웃',
+      className: 'text-red-400 hover:bg-red-500/20',
+      onSelect: () => console.log('로그아웃'),
     },
   ];
 

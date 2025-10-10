@@ -1,6 +1,6 @@
-import { useMemo, useState } from "react";
-import AppModal from "../AppModal";
-import BaseButton from "../BaseButton";
+import { useMemo, useState } from 'react';
+import AppModal from '../AppModal';
+import BaseButton from '../BaseButton';
 
 interface ThreadComposerModalProps {
   isOpen: boolean;
@@ -11,7 +11,7 @@ const MAX_LENGTH = 280;
 
 // 새 스레드 작성을 위한 모달 컴포저
 function ThreadComposerModal({ isOpen, onClose }: ThreadComposerModalProps) {
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const remaining = useMemo(() => MAX_LENGTH - content.length, [content.length]);
@@ -27,7 +27,7 @@ function ThreadComposerModal({ isOpen, onClose }: ThreadComposerModalProps) {
       // TODO: API 연동 영역
       await new Promise((resolve) => setTimeout(resolve, 800));
       onClose();
-      setContent("");
+      setContent('');
     } finally {
       setIsSubmitting(false);
     }
@@ -35,7 +35,7 @@ function ThreadComposerModal({ isOpen, onClose }: ThreadComposerModalProps) {
 
   const handleClose = () => {
     if (isSubmitting) return;
-    setContent("");
+    setContent('');
     onClose();
   };
 
@@ -62,7 +62,7 @@ function ThreadComposerModal({ isOpen, onClose }: ThreadComposerModalProps) {
           />
           <div className="flex items-center justify-between text-xs text-neutral-500">
             <span>태그나 @멘션을 자유롭게 사용하세요.</span>
-            <span className={isOverLimit ? "text-red-400" : undefined}>
+            <span className={isOverLimit ? 'text-red-400' : undefined}>
               {remaining < 0 ? `-${Math.abs(remaining)}` : remaining} / {MAX_LENGTH}
             </span>
           </div>
@@ -78,7 +78,7 @@ function ThreadComposerModal({ isOpen, onClose }: ThreadComposerModalProps) {
             취소
           </BaseButton>
           <BaseButton type="submit" disabled={!canSubmit} className="text-sm">
-            {isSubmitting ? "게시 중..." : "게시"}
+            {isSubmitting ? '게시 중...' : '게시'}
           </BaseButton>
         </div>
       </form>

@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import IconButton from "./IconButton";
-import BaseButton from "./BaseButton";
-import { Eye, EyeOff, Lock, Mail, User } from "lucide-react";
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import IconButton from './IconButton';
+import BaseButton from './BaseButton';
+import { Eye, EyeOff, Lock, Mail, User } from 'lucide-react';
 
 // 신규 사용자 가입 폼을 출력하는 카드 컴포넌트
 function SignupCard() {
@@ -13,9 +13,7 @@ function SignupCard() {
     <div className="app-panel w-full max-w-sm rounded-2xl border border-neutral-800 p-5 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.8)] sm:p-6">
       <div className="space-y-1">
         {/* <p className="text-xl font-semibold text-neutral-200">회원 가입</p> */}
-        <p className="text-xs text-neutral-500">
-          Threads 계정을 지금 만들어보세요.
-        </p>
+        <p className="text-xs text-neutral-500">Threads 계정을 지금 만들어보세요.</p>
       </div>
 
       <form className="mt-6 space-y-4">
@@ -49,7 +47,7 @@ function SignupCard() {
           <span className="mt-1 flex items-center rounded-lg border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm">
             <Lock className="mr-2 h-4 w-4 text-neutral-500" aria-hidden />
             <input
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               className="flex-1 bg-transparent text-neutral-100 outline-none placeholder:text-neutral-600"
               placeholder="최소 8자 이상"
             />
@@ -71,7 +69,7 @@ function SignupCard() {
           <span className="mt-1 flex items-center rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm">
             <Lock className="mr-2 h-4 w-4 text-neutral-500" aria-hidden />
             <input
-              type={showConfirm ? "text" : "password"}
+              type={showConfirm ? 'text' : 'password'}
               className="flex-1 bg-transparent text-neutral-100 outline-none placeholder:text-neutral-600"
               placeholder="다시 한 번 입력"
             />

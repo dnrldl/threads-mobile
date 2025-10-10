@@ -9,5 +9,5 @@ export function formatCount(count: number): string {
 }
 
 export function formatHandle(author: string): string {
-  return author.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return author.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
