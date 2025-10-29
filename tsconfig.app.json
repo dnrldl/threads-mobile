@@ -1,28 +1,75 @@
+// {
+//   "compilerOptions": {
+//     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+//     "target": "ES2022",
+//     "useDefineForClassFields": true,
+//     "lib": ["ES2022", "DOM", "DOM.Iterable"],
+//     "module": "ESNext",
+//     "types": ["vite/client"],
+//     "skipLibCheck": true,
+
+//     /* Bundler mode */
+//     "moduleResolution": "bundler",
+//     "allowImportingTsExtensions": true,
+//     "verbatimModuleSyntax": true,
+//     "moduleDetection": "force",
+//     "noEmit": true,
+//     "jsx": "react-jsx",
+
+//     /* Linting */
+//     "strict": true,
+//     // "noUnusedLocals": true,
+//     // "noUnusedParameters": true,
+//     "erasableSyntaxOnly": true,
+//     "noFallthroughCasesInSwitch": true, // switch문에서 break 빠트리는 실수 방지
+//     "noUncheckedSideEffectImports": true // 타입 선언 없이 import 방지
+//   },
+//   "include": ["src"]
+// }
+// prettier-ignore
 {
   "compilerOptions": {
+    /* =========================
+       📦 빌드 및 모듈 설정
+    ========================= */
+    "target": "ES2022",                          // 최신 문법 지원
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],    // 브라우저 + 최신 JS 기능
+    "module": "ESNext",                          // ESM 기반 번들링
+    "moduleResolution": "bundler",               // Vite용 모듈 해석 방식
+    "moduleDetection": "force",                  // 모든 파일을 모듈로 간주
+    "jsx": "react-jsx",                          // React 17+ 자동 JSX Transform
+    "useDefineForClassFields": true,             // 표준 class field 방식
+    "verbatimModuleSyntax": true,                // import/export를 TS가 손대지 않음
+    "allowImportingTsExtensions": true,          // .ts 확장자 명시 import 허용
+    "resolveJsonModule": true,                   // .json import 허용
+    "isolatedModules": true,                     // 각 파일을 독립 모듈로 취급 (HMR 안정화)
+    "noEmit": true,                              // JS 출력하지 않음 (Vite가 빌드 담당)
+    "skipLibCheck": true,                        // 외부 라이브러리 타입 검사 생략
+    "forceConsistentCasingInFileNames": true,    // 파일명 대소문자 불일치 방지
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "types": ["vite/client"],
-    "skipLibCheck": true,
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
+    /* =========================
+       🧭 경로 & 타입 설정
+    ========================= */
+    "baseUrl": "./src",                          // 절대경로 import 기준
+                         // 경로 별칭
+    "types": ["vite/client", "react", "react-dom"],
 
-    /* Linting */
-    "strict": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    /* =========================
+       🔒 타입 검사 및 품질 강화
+    ========================= */
+    "strict": true,                              // 전체 타입 검사 강화
+    "noImplicitAny": true,                       // 암묵적 any 금지
+    "strictNullChecks": true,                    // null/undefined 구분
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,                      // 사용 안 한 변수 경고
+    "noUnusedParameters": true,                  // 사용 안 한 매개변수 경고
+    "noFallthroughCasesInSwitch": true,          // switch 누락 방지
+    "noImplicitReturns": true,                   // 함수 모든 경로에서 return
+    "noUncheckedSideEffectImports": true,        // 타입 없는 부작용 import 경고
+    "erasableSyntaxOnly": true                   // 런타임 영향 있는 TS 문법 차단
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

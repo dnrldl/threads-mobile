@@ -29,7 +29,7 @@ function Dropdown({
     <Menu as="div" className="relative inline-flex">
       <MenuButton
         className={cn(
-          'font-bolds inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm text-neutral-200 transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 active:scale-90',
+          'font-bolds inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm text-neutral-200 transition hover:bg-white/10 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white/40 active:scale-90',
           triggerClassName
         )}
       >
